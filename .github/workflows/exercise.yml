@@ -1,0 +1,21 @@
+name: Hello World
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  APP_ENV: development
+
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print environment variable
+        run: echo "App environment is $APP_ENV"
+      - name: Print stage level variable
+        run: echo "Stage = $STAGE"
+        env:
+          STAGE: i_am_a_stage_level_variable
+      
